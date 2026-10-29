@@ -333,23 +333,6 @@ my-terminal-configuration/
         └── 1-glowing-city.jpg
 ```
 
-## Repository
-
-The project is published at:
-
-<https://github.com/KaissarSosuke/my-terminal-configuration>
-
-The local folder is already a git repository, and `origin` points to that
-URL. To push future changes:
-
-```sh
-git add .
-git commit -m "Update Green City Kitty"
-git push origin main
-```
-
-All files are well below GitHub's 100 MB per-file limit, so Git LFS is not
-needed.
 
 ## Troubleshooting
 
