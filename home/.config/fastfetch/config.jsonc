@@ -1,0 +1,112 @@
+// ~/.config/fastfetch/config.jsonc
+// Green City — compact layout sized for an 85-column Kitty window.
+// The PNG logo is drawn through Kitty's graphics protocol. If current.png is
+// removed, fastfetch falls back to its built-in logo instead of failing.
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    "logo": {
+        // kitty-direct lets Kitty read the PNG straight from disk. Unlike the
+        // "kitty" type it does not need ImageMagick to decode/scale the image.
+        "type": "kitty-direct",
+        "source": "~/.config/fastfetch/images/current.png",
+        "width": 22,
+        "height": 13,
+        "padding": {
+            "top": 0,
+            "right": 2,
+            "left": 0
+        },
+        "printRemaining": false
+    },
+
+    "display": {
+        "separator": "",
+        "brightColor": false,
+        "color": {
+            "keys": "green",
+            "output": "default",
+            "separator": "green"
+        },
+        // The box is 60 columns wide. Every row prefix is 11 columns, so this
+        // constant prints 48 spaces and the right border, then moves the
+        // cursor back 49 columns. Values never push the border out of line.
+        "constants": [
+            "                                                │\u001b[49D"
+        ]
+    },
+
+    "modules": [
+        // ── Unified information box: 60 columns × 12 rows ──────────────────
+        {
+            "type": "custom",
+            "format": "{##4FD18F}╭──────────────────────────────────────────────────────────╮{#}"
+        },
+        {
+            "type": "os",
+            "key": "{##4FD18F}│{#} {##8BF0AD}OS{#}     {##4FD18F}⇒{#} {$1}",
+            "format": "{pretty-name} {arch}"
+        },
+        {
+            "type": "kernel",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Kernel{#} {##4FD18F}⇒{#} {$1}",
+            "format": "{sysname} {release}"
+        },
+        {
+            "type": "packages",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Pkgs{#}   {##4FD18F}⇒{#} {$1}",
+            "format": "{dpkg} (dpkg), {flatpak-all} (flatpak)"
+        },
+        {
+            "type": "wm",
+            "key": "{##4FD18F}│{#} {##8BF0AD}WM{#}     {##4FD18F}⇒{#} {$1}",
+            "format": "{pretty-name} ({protocol-name})"
+        },
+        {
+            "type": "terminal",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Term{#}   {##4FD18F}⇒{#} {$1}",
+            "format": "{pretty-name} {version}"
+        },
+        {
+            "type": "cpu",
+            "key": "{##4FD18F}│{#} {##8BF0AD}CPU{#}    {##4FD18F}⇒{#} {$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "gpu",
+            "key": "{##4FD18F}│{#} {##8BF0AD}GPU{#}    {##4FD18F}⇒{#} {$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "memory",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Memory{#} {##4FD18F}⇒{#} {$1}",
+            "format": "{used} / {total} ({percentage})"
+        },
+        {
+            "type": "disk",
+            "folders": "/",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Disk{#}   {##4FD18F}⇒{#} {$1}",
+            "format": "{size-used} / {size-total} ({size-percentage})"
+        },
+        {
+            "type": "uptime",
+            "key": "{##4FD18F}│{#} {##8BF0AD}Uptime{#} {##4FD18F}⇒{#} {$1}",
+            "format": "{formatted}"
+        },
+        {
+            "type": "custom",
+            "format": "{##4FD18F}╰──────────────────────────────────────────────────────────╯{#}"
+        },
+        "break",
+
+        // ── Palette dots under the box ─────────────────────────────────────
+        {
+            "type": "colors",
+            "symbol": "circle",
+            "brightness": "normal",
+            "paddingLeft": 1,
+            "key": " "
+        },
+        "break"
+    ]
+}

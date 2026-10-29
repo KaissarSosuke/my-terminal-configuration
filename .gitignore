@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editor and shell leftovers
+*.bak
+*.swp
+*~
+*.zip
+
+# Local test output
+/tmp/
