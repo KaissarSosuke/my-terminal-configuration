@@ -7,7 +7,7 @@ with a PNG logo.
 ![Green City Kitty — final look](assets/screenshot.png)
 
 > The screenshot shows the **optional green window frame** and the bundled
-> sample logo. The base install is borderless. See
+> sample logo. The base install is borderless. but if you don't have borders on your windows by default, See
 > [Optional green border](#optional-green-border) for the two files and one
 > include line it needs.
 
